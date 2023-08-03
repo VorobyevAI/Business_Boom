@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <meta charset="utf-8">
+  <title>{% block title %}Django Auth Tutorial{% endblock %}</title>
+</head>
+<body>
+<header >
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container-fluid">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Список пользователей</a>
+          </li>
+
+
+
+          {% if user.is_authenticated %}
+
+           <li class="nav-item">
+            <a class="nav-link" href="http://127.0.0.1:8000/user/{{user.id}}/post_add">Добавить пост</a>
+          </li>
+          <li class="nav-item">
+            <a href="http://127.0.0.1:8000/session/auth/logout" class="nav-link disabled" aria-disabled="true">  Выйти</a>
+          </li>
+          {% else %}
+
+          <li class="nav-item">
+            <a class="nav-link" href="http://127.0.0.1:8000/session/auth/login/">Войти</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/signup/">Зарегистрироваться</a>
+          </li>
+          {% endif %}
+
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+  <main>
+</header>
+<main class="flex-shrink-0">
+    <div class="container">
+    {% block content %}
+
+    {% endblock %}
+    </div>
+  </main>
+</body>
+</html>

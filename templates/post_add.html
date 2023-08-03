@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+
+
+{% block title %}Добавить пост{% endblock %}
+{% block content %}
+<html><body>
+
+<h1>Profile - {{ user.username }}</h1>
+
+<form method="POST" >
+    {% csrf_token %}
+
+  <div class="form-group">
+     <div class="form-group">
+    <label>Заголовок</label>
+    <input type="text" name="title" class="form-control" >
+  </div>
+    <label>Текст</label>
+    <textarea  name="body" class="form-control" ></textarea>
+  </div>
+
+
+    <input type="submit" value="Сохранить">
+</form>
+
+</body></html>
+{% endblock %}

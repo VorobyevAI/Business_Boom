@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+<br><br>
+<table class="table table-dark table-borderless">
+
+          <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Пользователь</th>
+              <th scope="col">Почта</th>
+          </tr>
+          </thead>
+    {% for i in users %}
+          <tbody>
+          <tr>
+            <th scope="row">{{i.id}}</th>
+              <td><a href="user/{{i.id}}/post_list/">{{i.username}}</a></td>
+              <td>{{i.email}}</td>
+          </tr>
+
+          </tbody>
+    {% endfor %}
+        </table>
+
+
+
+{% endblock %}
